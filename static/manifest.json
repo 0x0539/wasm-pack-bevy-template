@@ -1,6 +1,6 @@
 {
-  "name": "{{project-name}}",
-  "short_name": "{{project-name}}",
+  "name": "{{ project-name | split: " " | map: "capitalize" | join: " " }}",
+  "short_name": "{{ project-name | split: " " | map: "capitalize" | join: " " }}",
   "description": "A WebAssembly application with PWA support",
   "start_url": "./index.html",
   "display": "standalone",
