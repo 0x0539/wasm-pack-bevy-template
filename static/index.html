@@ -20,8 +20,8 @@
 
     <!-- Modal -->
     <div id="settings-modal">
-      <button onclick="makeFullscreen()">Go Fullscreen</button>
-      <button onclick="closeSettings()">Close</button>
+      <button class="settings-button" onclick="makeFullscreen()">Go Fullscreen</button>
+      <button class="settings-button" onclick="closeSettings()">Close</button>
     </div>
   </div>
 
@@ -56,14 +56,16 @@
   <script>
     function openSettings() {
       document.getElementById("settings-modal").style.display = "block";
+      document.getElementById("settings-overlay").style.display = "block";
     }
 
     function closeSettings() {
       document.getElementById("settings-modal").style.display = "none";
+      document.getElementById("settings-overlay").style.display = "none";
     }
 
     function makeFullscreen() {
-      document.getElementById("container").requestFullscreen();
+      document.getElementById("app").requestFullscreen();
     }
   </script>
 </body>
