@@ -2,7 +2,7 @@ use bevy::prelude::*;
 use bevy::window::WindowResolution;
 use wasm_bindgen::prelude::*;
 
-const X_EXTENT: f32 = 900.;
+const X_EXTENT: f32 = 800.;
 const Y_EXTENT: f32 = X_EXTENT;
 
 #[wasm_bindgen(start)]
