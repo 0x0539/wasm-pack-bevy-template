@@ -39,6 +39,7 @@
     async function run() {
       await init();
 
+      /*
       const canvas = document.getElementById("{{project-name}}-canvas");
       const resizeCanvas = () => {
         const dpi = window.devicePixelRatio || 1;
@@ -51,6 +52,7 @@
       // Set initial size and listen for window resize
       resizeCanvas();
       window.addEventListener("resize", resizeCanvas);
+      */
 
       wasmModule.start();
     }
