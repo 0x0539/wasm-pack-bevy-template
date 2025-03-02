@@ -1,4 +1,4 @@
-const CACHE_NAME = '{{crate_name}}-cache-v1';
+const CACHE_NAME = '{{project-name}}-cache-v1';
 const urlsToCache = [
   './',
   './index.html',

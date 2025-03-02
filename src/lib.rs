@@ -11,7 +11,7 @@ pub fn start() {
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             primary_window: Some(Window {
                 resolution: WindowResolution::new(X_EXTENT, Y_EXTENT),
-                canvas: Some("#{{crate_name}}-canvas".into()),
+                canvas: Some("#{{project-name}}-canvas".into()),
                 ..default()
             }),
             ..default()
