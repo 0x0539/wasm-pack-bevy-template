@@ -13,7 +13,9 @@
 <body>
   <div id="app">
     <h1>WASM Application</h1>
-    <div id="wasm-container"></div>
+    <div id="wasm-container">
+      <canvas id="{{project-name}}-canvas"></canvas>
+    </div>
   </div>
 
   <script>
@@ -33,7 +35,7 @@
   
   <!-- Load the WASM module -->
   <script type="module">
-    import init, * as wasmModule from '../pkg/{{project-name}}.js';
+    import init, * as wasmModule from './pkg/{{project-name}}.js';
     
     async function run() {
       // Initialize the WASM module
@@ -41,8 +43,7 @@
       
       // Now you can use functions exposed by your WASM module
       // For example:
-      // const result = wasmModule.your_function();
-      // document.getElementById('wasm-container').textContent = result;
+      wasmModule.start();
     }
     
     run();
