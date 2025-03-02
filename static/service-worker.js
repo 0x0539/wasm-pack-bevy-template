@@ -1,4 +1,4 @@
-const CACHE_NAME = '{{project-name}}-cache-v1';
+const CACHE_NAME = '{{crate_name}}-cache-v1';
 const urlsToCache = [
   './',
   './index.html',
@@ -7,8 +7,8 @@ const urlsToCache = [
   './icons/favicon.ico',
   './icons/icon-192x192.png',
   './icons/icon-512x512.png',
-  './pkg/{{project-name}}.js',
-  './pkg/{{project-name}}_bg.wasm'
+  './pkg/{{crate_name}}.js',
+  './pkg/{{crate_name}}_bg.wasm'
 ];
 
 // Install service worker and cache assets

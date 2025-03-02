@@ -1,6 +1,6 @@
 {
-  "name": "WASM Application",
-  "short_name": "WASM App",
+  "name": "{{project-name}}",
+  "short_name": "{{project-name}}",
   "description": "A WebAssembly application with PWA support",
   "start_url": "./index.html",
   "display": "standalone",
