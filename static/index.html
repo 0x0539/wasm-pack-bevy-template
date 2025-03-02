@@ -41,8 +41,11 @@
 
       const canvas = document.getElementById("{{project-name}}-canvas");
       const resizeCanvas = () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        const dpi = window.devicePixelRatio || 1;
+        canvas.width = window.innerWidth * dpi;
+        canvas.height = window.innerHeight * dpi;
+        canvas.style.width = `${window.innerWidth}px`;
+        canvas.style.height = `${window.innerHeight}px`;
       };
 
       // Set initial size and listen for window resize
