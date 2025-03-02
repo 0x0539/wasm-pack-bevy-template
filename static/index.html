@@ -12,7 +12,6 @@
 </head>
 <body>
   <div id="app">
-    <h1>{{ project-name }}</h1>
     <div id="wasm-container">
       <canvas id="{{project-name}}-canvas"></canvas>
     </div>
@@ -36,16 +35,23 @@
   <!-- Load the WASM module -->
   <script type="module">
     import init, * as wasmModule from './pkg/{{crate_name}}.js';
-    
+
     async function run() {
-      // Initialize the WASM module
       await init();
-      
-      // Now you can use functions exposed by your WASM module
-      // For example:
+
+      const canvas = document.getElementById("{{project-name}}-canvas");
+      const resizeCanvas = () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      };
+
+      // Set initial size and listen for window resize
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+
       wasmModule.start();
     }
-    
+
     run();
   </script>
 </body>
