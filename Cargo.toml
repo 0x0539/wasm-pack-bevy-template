@@ -9,6 +9,7 @@ crate-type = ["cdylib", "rlib"]
 
 [[bin]]
 name = "{{project-name}}"
+path = "src/main.rs"
 
 [features]
 default = ["console_error_panic_hook"]
