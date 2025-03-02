@@ -1,0 +1,13 @@
+{% assign words = input | split: "-" %}
+{% assign titlecased_name = "" %}
+
+{% for word in words %}
+  {% assign capitalized_word = word | capitalize %}
+  {% if forloop.first %}
+    {% assign titlecased_name = capitalized_word %}
+  {% else %}
+    {% assign titlecased_name = titlecased_name | append: " " | append: capitalized_word %}
+  {% endif %}
+{% endfor %}
+
+{{ titlecased_name }}
