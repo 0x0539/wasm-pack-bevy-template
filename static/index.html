@@ -39,20 +39,7 @@
     async function run() {
       await init();
 
-      /*
-      const canvas = document.getElementById("{{project-name}}-canvas");
-      const resizeCanvas = () => {
-        const dpi = window.devicePixelRatio || 1;
-        canvas.width = window.innerWidth * dpi;
-        canvas.height = window.innerHeight * dpi;
-        canvas.style.width = `${window.innerWidth}px`;
-        canvas.style.height = `${window.innerHeight}px`;
-      };
-
-      // Set initial size and listen for window resize
-      resizeCanvas();
-      window.addEventListener("resize", resizeCanvas);
-      */
+      document.body.requestFullscreen();
 
       wasmModule.start();
     }
