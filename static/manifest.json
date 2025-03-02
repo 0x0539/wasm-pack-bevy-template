@@ -1,6 +1,6 @@
 {
-  "name": "{% include 'titlecase' input=project-name %}",
-  "short_name": "{% include 'titlecase' input=project-name %}",
+  "name": "{% render 'titlecase' input=project-name %}",
+  "short_name": "{% render 'titlecase' input=project-name %}",
   "description": "A WebAssembly application with PWA support",
   "start_url": "./index.html",
   "display": "standalone",
