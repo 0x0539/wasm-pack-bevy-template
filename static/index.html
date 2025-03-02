@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4285f4">
+  <title>WASM App</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+</head>
+<body>
+  <div id="app">
+    <h1>WASM Application</h1>
+    <div id="wasm-container"></div>
+  </div>
+
+  <script>
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(registration => {
+            console.log('Service Worker registered: ', registration);
+          })
+          .catch(error => {
+            console.log('Service Worker registration failed: ', error);
+          });
+      });
+    }
+  </script>
+  
+  <!-- Load the WASM module -->
+  <script type="module">
+    import init, * as wasmModule from '../pkg/your_wasm_package.js';
+    
+    async function run() {
+      // Initialize the WASM module
+      await init();
+      
+      // Now you can use functions exposed by your WASM module
+      // For example:
+      // const result = wasmModule.your_function();
+      // document.getElementById('wasm-container').textContent = result;
+    }
+    
+    run();
+  </script>
+</body>
+</html>
