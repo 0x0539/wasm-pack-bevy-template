@@ -6,7 +6,7 @@ html, body {
   overflow: hidden;
 }
 
-#wasm-container, canvas {
+#app, #wasm-container, canvas {
   display: block;
   width: 100%;
   height: 100%;
