@@ -10,7 +10,6 @@ pub fn start() {
     App::new()
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             primary_window: Some(Window {
-                resolution: WindowResolution::new(X_EXTENT, Y_EXTENT),
                 canvas: Some("#{{project-name}}-canvas".into()),
                 ..default()
             }),
