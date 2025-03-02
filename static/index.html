@@ -12,8 +12,16 @@
 </head>
 <body>
   <div id="app">
-    <div id="wasm-container">
-      <canvas id="{{project-name}}-canvas"></canvas>
+    <!-- Canvas -->
+    <canvas id="{{project-name}}-canvas"></canvas>
+    
+    <!-- Settings Cog Icon -->
+    <div id="settings-icon" onclick="openSettings()">⚙</div>
+
+    <!-- Modal -->
+    <div id="settings-modal">
+      <button onclick="makeFullscreen()">Go Fullscreen</button>
+      <button onclick="closeSettings()">Close</button>
     </div>
   </div>
 
@@ -39,12 +47,24 @@
     async function run() {
       await init();
 
-      document.body.requestFullscreen();
-
       wasmModule.start();
     }
 
     run();
+  </script>
+  
+  <script>
+    function openSettings() {
+      document.getElementById("settings-modal").style.display = "block";
+    }
+
+    function closeSettings() {
+      document.getElementById("settings-modal").style.display = "none";
+    }
+
+    function makeFullscreen() {
+      document.getElementById("container").requestFullscreen();
+    }
   </script>
 </body>
 </html>
