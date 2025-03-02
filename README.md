@@ -44,6 +44,13 @@ wasm-pack new hello --template wasm-pack-bevy-template
 wasm-pack build --target web --out-dir=static/pkg --dev
 ```
 
+### 🔬 Test in Browser
+
+```
+python3 -m http.server static/
+google-chrome http://localhost:8000/
+```
+
 ### 🔬 Test in Headless Browsers with `wasm-pack test`
 
 ```

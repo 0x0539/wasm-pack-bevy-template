@@ -1,12 +1,16 @@
 use bevy::prelude::*;
+use bevy::window::WindowResolution;
 use wasm_bindgen::prelude::*;
+
+const X_EXTENT: f32 = 900.;
+const Y_EXTENT: f32 = X_EXTENT;
 
 #[wasm_bindgen(start)]
 pub fn start() {
     App::new()
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             primary_window: Some(Window {
-                resolution: WindowResolution::new(800, 600),
+                resolution: WindowResolution::new(X_EXTENT, Y_EXTENT),
                 canvas: Some("#{{project-name}}-canvas".into()),
                 ..default()
             }),
@@ -15,12 +19,6 @@ pub fn start() {
         .add_systems(Startup, setup)
         .run();
 }
-
-fn setup(mut commands: Commands) {
-    commands.spawn(Camera2d);
-}
-
-const X_EXTENT: f32 = 900.;
 
 fn setup(
     mut commands: Commands,
