@@ -1,0 +1,9 @@
+{% macro titlecase(name) %}
+  {% set words = name | split(pat="-") %}
+  {% set capitalized_words = [] %}
+  {% for word in words %}
+    {% set capitalized_word = word | capitalize %}
+    {% set capitalized_words = capitalized_words | concat(with=capitalized_word) %}
+  {% endfor %}
+  {{ capitalized_words | join(sep=" ") }}
+{% endmacro %}
