@@ -24,6 +24,7 @@
     <!-- Modal -->
     <div id="settings-modal">
       <button class="settings-button" onclick="makeFullscreen()">Go Fullscreen</button>
+      <button class="settings-button" id="install-button" style="display: none;">Install App</button>
       <button class="settings-button" onclick="closeSettings()">Close</button>
     </div>
   </div>
@@ -56,6 +57,33 @@
     run();
   </script>
   
+  <!-- PWA -->
+  <script>
+    let deferredPrompt;
+
+    // Detect PWA install availability
+    window.addEventListener("beforeinstallprompt", (event) => {
+      event.preventDefault(); // Prevent automatic prompt
+      deferredPrompt = event;
+      document.getElementById("install-button").style.display = "block"; // Show install button
+    });
+
+    // Install PWA when button is clicked
+    document.getElementById("install-button").addEventListener("click", () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(choice => {
+          if (choice.outcome === "accepted") {
+            console.log("User installed the PWA");
+          }
+          deferredPrompt = null;
+          document.getElementById("install-button").style.display = "none"; // Hide button after install
+        });
+      }
+    });
+  </script>
+
+  <!-- Settings menu -->
   <script>
     function openSettings() {
       document.getElementById("settings-modal").style.display = "block";
